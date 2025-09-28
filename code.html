@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎬 Telugu Movie Reviews</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #000000;
+      margin: 0;
+      padding: 0;
+      color: rgb(0, 0, 0);
+    }
+    header {
+      background: linear-gradient(135deg, #D2D212);
+      color: rgb(0, 0, 0);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgb(0, 0, 0);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      margin-top: 5px;
+      font-size: 1rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    .movie {
+      background: rgb(255, 255, 255);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 25px;
+      display: flex;
+      gap: 20px;
+      box-shadow: 0 6px 12px rgb(0, 0, 0);
+      transition: transform 0.2s ease;
+    }
+    .movie:hover {
+      transform: translateY(-5px);
+    }
+    .poster {
+      flex: 0 0 180px;
+    }
+    .poster img {
+      width: 180px;
+      height: 260px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .details h2 {
+      margin: 0;
+      color: #222;
+    }
+    .description {
+      margin: 10px 0;
+      line-height: 1.4;
+    }
+    .stars {
+      margin: 10px 0;
+    }
+    .stars span {
+      font-size: 26px;
+      cursor: pointer;
+      color: #d5f507;
+      transition: color 0.2s;
+    }
+    .stars span.selected {
+      color: rgb(182, 250, 9);
+    }
+    .comments {
+      margin-top: auto;
+    }
+    .comments textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #0872fc;
+      border-radius: 8px;
+      resize: none;
+      margin-bottom: 8px;
+    }
+    button {
+      padding: 8px 14px;
+      border: none;
+      background: #d90808;
+      color: rgb(244, 244, 244);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #e53e5d;
+    }
+    .comment-list {
+      margin-top: 10px;
+      padding-left: 18px;
+    }
+    .comment-list li {
+      background: #f7f7f7;
+      padding: 8px;
+      border-radius: 6px;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎥 Movie Review & Rating Platform</h1>
+    <p>Discover, rate & review your favorite films</p>
+  </header>
+
+  <div class="container">
+    <!-- Movies -->
+    <div class="movie" data-id="pushpa2">
+      <div class="poster">
+        <img src="https://s.yimg.com/zb/imgv1/8fd34d3b-2e69-381b-a4d8-52938312b518/t_500x300" alt="Pushpa 2 Poster">
+      </div>
+      <div class="details">
+        <h2>Pushpa 2: The Rule</h2>
+        <p class="description">
+          Pushpa Raj continues his rise in the red sanders smuggling world, facing powerful enemies and the law. Starring Allu Arjun in his iconic avatar.
+        </p>
+        <div class="stars"></div>
+        <div class="comments">
+          <textarea placeholder="Write your comment..."></textarea>
+          <button onclick="addComment('pushpa2')">Submit</button>
+          <ul class="comment-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="movie" data-id="dragon">
+      <div class="poster">
+        <img src="https://igimage.indiaglitz.com/telugu/gallery/movies/returnofthedragon2025/return-of-the-dragon-main.jpg" alt="Return of the Dragon Poster">
+      </div>
+      <div class="details">
+        <h2>Return of the Dragon</h2>
+        <p class="description">
+          Raghavan, a top student, reinvents himself as “Dragon” after heartbreak. A tale of love, ambition, mistakes, and redemption.
+        </p>
+        <div class="stars"></div>
+        <div class="comments">
+          <textarea placeholder="Write your comment..."></textarea>
+          <button onclick="addComment('dragon')">Submit</button>
+          <ul class="comment-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="movie" data-id="littlehearts">
+      <div class="poster">
+        <img src="https://images.filmibeat.com/te/img/2025/09/littlehearts8-1758341409.jpg" alt="Little Hearts 2025 Poster">
+      </div>
+      <div class="details">
+        <h2>Little Hearts (2025)</h2>
+        <p class="description">
+          A fun romantic comedy about Akhil and Khatyayani navigating young love, failures, family pressures, and personal growth.
+        </p>
+        <div class="stars"></div>
+        <div class="comments">
+          <textarea placeholder="Write your comment..."></textarea>
+          <button onclick="addComment('littlehearts')">Submit</button>
+          <ul class="comment-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="movie" data-id="devara">
+      <div class="poster">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.MggRJCnDTAJyHQlJmhesqAHaDt?pid=Api&P=0&h=180" alt="Devara Movie Poster">
+      </div>
+      <div class="details">
+        <h2>Devara: Part 1</h2>
+        <p class="description">
+          NTR Jr’s high-octane action drama about power, revenge, and legacy. Directed by Koratala Siva, featuring stunning visuals and intense action.
+        </p>
+        <div class="stars"></div>
+        <div class="comments">
+          <textarea placeholder="Write your comment..."></textarea>
+          <button onclick="addComment('devara')">Submit</button>
+          <ul class="comment-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="movie" data-id="gamechanger">
+      <div class="poster">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.6i_yFJaY3D6QDEFgXsakpAHaEK?pid=Api&P=0&h=180" alt="Game Changer Poster">
+      </div>
+      <div class="details">
+        <h2>Game Changer</h2>
+        <p class="description">
+          Starring Ram Charan, this political thriller explores power struggles, justice, and the voice of the people.
+        </p>
+        <div class="stars"></div>
+        <div class="comments">
+          <textarea placeholder="Write your comment..."></textarea>
+          <button onclick="addComment('gamechanger')">Submit</button>
+          <ul class="comment-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Init stars and comments
+    document.querySelectorAll(".movie").forEach(movie => {
+      const movieId = movie.getAttribute("data-id");
+      const starContainer = movie.querySelector(".stars");
+      for (let i = 1; i <= 5; i++) {
+        const star = document.createElement("span");
+        star.innerHTML = "★";
+        star.dataset.value = i;
+        star.addEventListener("click", () => setRating(movieId, i));
+        starContainer.appendChild(star);
+      }
+      loadRating(movieId);
+      loadComments(movieId);
+    });
+
+    function setRating(movieId, rating) {
+      localStorage.setItem(movieId + "_rating", rating);
+      loadRating(movieId);
+    }
+
+    function loadRating(movieId) {
+      const rating = localStorage.getItem(movieId + "_rating");
+      const stars = document.querySelector(`.movie[data-id='${movieId}'] .stars`).children;
+      for (let i = 0; i < stars.length; i++) {
+        stars[i].classList.toggle("selected", i < rating);
+      }
+    }
+
+    function addComment(movieId) {
+      const movie = document.querySelector(`.movie[data-id='${movieId}']`);
+      const textarea = movie.querySelector("textarea");
+      const comment = textarea.value.trim();
+      if (!comment) return;
+      let comments = JSON.parse(localStorage.getItem(movieId + "_comments")) || [];
+      comments.push(comment);
+      localStorage.setItem(movieId + "_comments", JSON.stringify(comments));
+      textarea.value = "";
+      loadComments(movieId);
+    }
+
+    function loadComments(movieId) {
+      const movie = document.querySelector(`.movie[data-id='${movieId}']`);
+      const commentList = movie.querySelector(".comment-list");
+      commentList.innerHTML = "";
+      let comments = JSON.parse(localStorage.getItem(movieId + "_comments")) || [];
+      comments.forEach(c => {
+        const li = document.createElement("li");
+        li.textContent = c;
+        commentList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
